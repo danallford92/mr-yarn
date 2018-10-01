@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`remove command should remove a dependency from all workspaces even when some dont contain it 1`] = `
-"[35mMr Yarn[39m [32minfo[39m: Target workspaces ['workspace-one','workspace-two']
-[35mMr Yarn[39m [33mwarn[39m: Command failed: yarn remove react
-[35mMr Yarn[39m [33mwarn[39m: error This module isn't specified in a package.json file.
+exports[`remove command should remove an existing dependency from a specified workspace 1`] = `
+"[35mMr Yarn[39m [32minfo[39m: Target workspaces ['workspace-one']
 [35mMr Yarn[39m [32minfo[39m: Done 🎉
 "
 `;
