@@ -1,8 +1,4 @@
-import { readJson, writeJson } from 'fs-extra'
-import { resolve } from 'path'
-const semverRegex: () => RegExp = require('semver-regex') // tslint:disable-line
 import { Argv } from 'yargs'
-const validateNPMPackageName = require('validate-npm-package-name') // tslint:disable-line
 import { exec } from '../exec'
 import { defaultLogger } from '../logger'
 import { findWorkspacesByName, loadWorkspaces } from '../workspaces'
