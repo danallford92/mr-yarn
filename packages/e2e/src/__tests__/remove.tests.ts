@@ -54,6 +54,19 @@ describe('remove command', () => {
         expect(stdout).toMatchSnapshot()
     })
 
+    it('should remove a dependency from all workspaces even when some dont contain it', async () => {
+        await exec('mr add react@16.5.0 -w workspace-one', { cwd })
+
+        const { stdout } = await exec('mr remove react', { cwd })
+
+        const workspaceOne = await readJson(resolve(cwd, 'workspaces/workspace-one/package.json'))
+        const workspaceTwo = await readJson(resolve(cwd, 'workspaces/workspace-two/package.json'))
+
+        expect(workspaceOne.dependencies.react).toBe(undefined)
+        expect(workspaceTwo.dependencies).toBe(undefined)
+        expect(stdout).toMatchSnapshot()
+    })
+
     it('should remove multiple existing dependencies', async () => {
         await exec('mr add react@16.5.0 deep-freeze', { cwd })
 
