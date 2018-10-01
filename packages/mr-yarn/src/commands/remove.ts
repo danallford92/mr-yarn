@@ -65,7 +65,7 @@ export const remove = async (options: IRemoveOptions) => {
 export const applyRemoveCommand = (argv: Argv, options: IRemoveCommandOptions) =>
     argv.command(
         'remove [packages...]',
-        'Remove packages to workspaces',
+        'Remove packages from workspaces',
         yargs => yargs,
         args => {
             remove({
